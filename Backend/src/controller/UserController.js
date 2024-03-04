@@ -13,7 +13,7 @@ exports.registration = async (req, res) => {
 };
 
 //Login
-const login = async (req, res) => {
+exports.login = async (req, res) => {
   try {
     const reqBody = req.body;
     const data = await UserModel.aggregate([
@@ -45,4 +45,15 @@ const login = async (req, res) => {
   }
 };
 
-exports.login = login;
+//update
+
+exports.profileUpdate = async (req, res) => {
+  try {
+    let email = req.headers["email"];
+    let reqBody = req.body;
+    let result = await UserModel.updateOne({ email: email }, reqBody);
+    res.status(200).json({ status: "success", data: result });
+  } catch (e) {
+    res.status(200).json({ status: "fail", message: "Profile update fail" });
+  }
+};
