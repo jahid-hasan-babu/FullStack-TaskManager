@@ -1,10 +1,11 @@
 import React from "react";
+import MasterLayout from "../components/MasterLayout/MasterLayout";
 
 const DashBoardPage = () => {
   return (
-    <div>
+    <MasterLayout>
       <h1>This is my DashBoardPage</h1>
-    </div>
+    </MasterLayout>
   );
 };
 
