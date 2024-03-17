@@ -11,7 +11,7 @@ import RegistrationPage from "./page/RegistrationPage";
 import ForgetPage from "./page/ForgetPage";
 import Page404 from "./page/Page404";
 import LoginPage from "./page/LoginPage";
-import FullScreenLoader from "./components/MasterLayout/FullScreenLoader";
+// import FullScreenLoader from "./components/MasterLayout/FullScreenLoader";
 
 const App = () => {
   return (
@@ -31,7 +31,7 @@ const App = () => {
           <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
-      <FullScreenLoader />
+      {/* <FullScreenLoader /> */}
     </>
   );
 };
