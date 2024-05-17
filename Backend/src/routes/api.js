@@ -25,7 +25,7 @@ router.get(
 );
 
 router.get(
-  "/updateTask/:id/:status",
+  "/updateTaskStatus/:id/:status",
   AuthVerification,
   TaskController.updateTask
 );

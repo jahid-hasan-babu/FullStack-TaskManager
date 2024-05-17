@@ -20,8 +20,8 @@ app.use(helmet());
 app.use(hpp());
 app.use(mongoSanitize());
 app.use(xssClean());
-app.use(express.json({ limit: "50mb", extended: true }));
-app.use(express.urlencoded({ limit: "50mb", extended: true }));
+app.use(express.json({ limit: "100mb", extended: true }));
+app.use(express.urlencoded({ limit: "100mb", extended: true }));
 
 //Rate limiter
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 300 });

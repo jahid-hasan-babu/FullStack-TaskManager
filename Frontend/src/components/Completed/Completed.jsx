@@ -1,23 +1,26 @@
 import React, { Fragment, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { AiOutlineCalendar, AiOutlineDelete } from "react-icons/ai";
-import { AiOutlineEdit } from "react-icons/ai";
+import {
+  AiOutlineCalendar,
+  AiOutlineDelete,
+  AiOutlineEdit,
+} from "react-icons/ai";
 import { TaskListByStatus } from "../../APIRequest/APIRequest";
 import { useSelector } from "react-redux";
 import { DeleteToDO } from "../../helper/DeleteAlert";
 import { UpdateToDO } from "../../helper/UpdateAlert";
 import { Toaster } from "react-hot-toast";
-const Canceled = () => {
+const Completed = () => {
   useEffect(() => {
-    TaskListByStatus("Canceled");
+    TaskListByStatus("Completed");
   }, []);
 
-  const CanceledList = useSelector((state) => state.task.Canceled);
+  const CompletedList = useSelector((state) => state.task.Completed);
 
   const DeleteItem = (id) => {
     DeleteToDO(id).then((result) => {
       if (result === true) {
-        TaskListByStatus("Canceled");
+        TaskListByStatus("Completed");
       }
     });
   };
@@ -25,7 +28,7 @@ const Canceled = () => {
   const StatusChangeItem = (id, status) => {
     UpdateToDO(id, status).then((result) => {
       if (result === true) {
-        TaskListByStatus("Canceled");
+        TaskListByStatus("Completed");
       }
     });
   };
@@ -35,7 +38,7 @@ const Canceled = () => {
       <Container fluid={true} className="content-body">
         <div className="row p-0 m-0">
           <div className="col-12 col-md-6 col-lg-8 px-3">
-            <h5>Task Canceled</h5>
+            <h5>Task Completed</h5>
           </div>
           <div className="col-12 float-end col-md-6 col-lg-4 px-2">
             <div className="row">
@@ -49,7 +52,7 @@ const Canceled = () => {
           </div>
         </div>
         <div className="row p-0 m-0">
-          {CanceledList.map((item, i) => (
+          {CompletedList.map((item, i) => (
             <div
               key={i.toString()}
               className="col-12 col-lg-4 col-sm-6 col-md-4  p-2"
@@ -76,7 +79,7 @@ const Canceled = () => {
                     >
                       <AiOutlineDelete />
                     </a>
-                    <a className="badge float-end bg-danger">{item.status}</a>
+                    <a className="badge float-end bg-success">{item.status}</a>
                   </p>
                 </div>
               </div>
@@ -89,4 +92,4 @@ const Canceled = () => {
   );
 };
 
-export default Canceled;
+export default Completed;
