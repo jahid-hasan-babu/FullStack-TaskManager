@@ -4,6 +4,7 @@ import { ErrorToast } from "../../helper/FormHelper";
 import { RecoverVerifyOTPRequest } from "../../APIRequest/APIRequest";
 import { getEmail } from "../../helper/SessionHelper";
 import { useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const VerifyOTP = () => {
   let navigate = useNavigate();
@@ -66,6 +67,7 @@ const VerifyOTP = () => {
             </div>
           </div>
         </div>
+        <Toaster position="bottom-center" />
       </div>
     </Fragment>
   );

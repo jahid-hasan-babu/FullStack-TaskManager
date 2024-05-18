@@ -14,7 +14,7 @@ let sentEmailUtility = async (emailTo, emailText, emailSub) => {
     })
   );
   let mailOption = {
-    from: "MERN Ecommerce Service <jahidhasanbabu657@gmail.com>",
+    from: "TASK MANAGER Service <jahidhasanbabu657@gmail.com>",
     to: emailTo,
     subject: emailSub,
     text: emailText,

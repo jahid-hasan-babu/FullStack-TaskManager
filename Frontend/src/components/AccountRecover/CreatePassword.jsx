@@ -3,6 +3,7 @@ import { ErrorToast, IsEmpty } from "../../helper/FormHelper";
 import { RecoverResetPassRequest } from "../../APIRequest/APIRequest";
 import { getEmail, getOTP } from "../../helper/SessionHelper";
 import { useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 const CreatePassword = () => {
   let PasswordRef,
     ConfirmPasswordRef = useRef();
@@ -70,6 +71,7 @@ const CreatePassword = () => {
             </div>
           </div>
         </div>
+        <Toaster position="bottom-center" />
       </div>
     </Fragment>
   );
