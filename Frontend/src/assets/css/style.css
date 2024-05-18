@@ -1,5 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&amp;display=swap");
-
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"),
+    url("https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2")
+      format("woff2");
+}
 .d-none {
   display: none;
 }

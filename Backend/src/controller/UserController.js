@@ -25,7 +25,7 @@ exports.login = async (req, res) => {
           firstName: 1,
           lastName: 1,
           mobile: 1,
-          image: 1,
+          photo: 1,
         },
       },
     ]).exec();

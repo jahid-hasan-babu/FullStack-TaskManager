@@ -7,6 +7,7 @@ import {
   IsMobile,
 } from "../../helper/FormHelper";
 import { RegistrationRequest } from "../../APIRequest/APIRequest";
+import { Toaster } from "react-hot-toast";
 const Registration = () => {
   let emailRef,
     firstNameRef,
@@ -122,6 +123,7 @@ const Registration = () => {
           </div>
         </div>
       </div>
+      <Toaster position="bottom-center" />
     </div>
   );
 };

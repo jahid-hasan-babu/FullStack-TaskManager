@@ -1,34 +1,30 @@
-import React, { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { Fragment, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ErrorToast, IsEmail, IsEmpty } from "../../helper/FormHelper";
-import { Toaster } from "react-hot-toast";
 import { LoginRequest } from "../../APIRequest/APIRequest";
-
+import { Toaster } from "react-hot-toast";
 const Login = () => {
-  const emailRef = useRef(null); // Declare emailRef separately
-  const passRef = useRef(null); // Declare passRef separately
-
-  const navigate = useNavigate();
+  let passRef,
+    emailRef = useRef();
 
   const SubmitLogin = () => {
-    let email = emailRef.current.value; // Access current value of emailRef
-    let pass = passRef.current.value; // Access current value of passRef
-
+    let email = emailRef.value;
+    let pass = passRef.value;
     if (IsEmail(email)) {
       ErrorToast("Invalid Email Address");
     } else if (IsEmpty(pass)) {
       ErrorToast("Password Required");
     } else {
       LoginRequest(email, pass).then((result) => {
-        if (result === true) {
-          navigate("/");
+        if (result.success) {
+          window.location.href = "/";
         }
       });
     }
   };
 
   return (
-    <>
+    <Fragment>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-7 col-lg-6 center-screen">
@@ -37,14 +33,14 @@ const Login = () => {
                 <h4>SIGN IN</h4>
                 <br />
                 <input
-                  ref={emailRef}
+                  ref={(input) => (emailRef = input)}
                   placeholder="User Email"
                   className="form-control animated fadeInUp"
                   type="email"
                 />
                 <br />
                 <input
-                  ref={passRef}
+                  ref={(input) => (passRef = input)}
                   placeholder="User Password"
                   className="form-control animated fadeInUp"
                   type="password"
@@ -63,7 +59,7 @@ const Login = () => {
                       className="text-center ms-3 h6 animated fadeInUp"
                       to="/Registration"
                     >
-                      Sign Up
+                      Sign Up{" "}
                     </Link>
                     <span className="ms-1">|</span>
                     <Link
@@ -80,8 +76,7 @@ const Login = () => {
         </div>
         <Toaster position="bottom-center" />
       </div>
-    </>
+    </Fragment>
   );
 };
-
 export default Login;

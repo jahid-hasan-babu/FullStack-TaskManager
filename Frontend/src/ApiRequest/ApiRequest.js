@@ -49,26 +49,26 @@ export function NewTaskRequest(title, description) {
 export function LoginRequest(email, password) {
   store.dispatch(ShowLoader());
   let URL = BaseURL + "/login";
-  let PostBody = { email: email, password: password };
+  let PostBody = { email, password };
   return axios
     .post(URL, PostBody)
     .then((res) => {
       store.dispatch(HideLoader());
       if (res.status === 200) {
-        setToken(res.data["token"]);
-        setUserDetails(res.data["data"]);
+        setToken(res.data.token);
+        setUserDetails(res.data.data);
         SuccessToast("Login Success");
-        return true;
+        return { success: true, token: res.data.token };
       } else {
         ErrorToast("Invalid Email or Password");
-        return false;
+        return { success: false };
       }
     })
     .catch((err) => {
       ErrorToast("Something Went Wrong");
       store.dispatch(HideLoader());
       UnAuthorizeRequest(err);
-      return false;
+      return { success: false };
     });
 }
 
