@@ -8,7 +8,7 @@ const TaskController = require("../controller/TaskController");
 router.post("/registration", UserController.registration);
 router.post("/login", UserController.login);
 router.post("/profileUpdate", AuthVerification, UserController.profileUpdate);
-router.post("/profileDetails", AuthVerification, UserController.profileDetails);
+router.get("/profileDetails", AuthVerification, UserController.profileDetails);
 
 //task
 router.post("/createTask", AuthVerification, TaskController.createTask);
