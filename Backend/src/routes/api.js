@@ -10,6 +10,11 @@ router.post("/login", UserController.login);
 router.post("/profileUpdate", AuthVerification, UserController.profileUpdate);
 router.get("/profileDetails", AuthVerification, UserController.profileDetails);
 
+//recover
+router.get("/RecoverVerifyEmail/:email", UserController.RecoverVerifyEmail);
+router.get("/RecoverVerifyOTP/:email/:otp", UserController.RecoverVerifyOTP);
+router.post("/RecoverResetPass", UserController.RecoverResetPass);
+
 //task
 router.post("/createTask", AuthVerification, TaskController.createTask);
 router.delete("/deleteTask/:id", AuthVerification, TaskController.deleteTask);

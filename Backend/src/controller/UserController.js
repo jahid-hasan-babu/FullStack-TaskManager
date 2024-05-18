@@ -1,5 +1,7 @@
 const UserModel = require("../model/UserModel");
+const OTPModel = require("../model/OTPModel");
 const jwt = require("jsonwebtoken");
+const sentEmailUtility = require("../utility/EmailHelper");
 
 //Registration
 exports.registration = async (req, res) => {
@@ -82,29 +84,32 @@ exports.profileDetails = async (req, res) => {
 };
 
 exports.RecoverVerifyEmail = async (req, res) => {
-  let email = req.params.email;
-  let OTPCode = Math.floor(100000 + Math.random() * 900000);
   try {
-    // Email Account Query
-    let UserCount = await UsersModel.aggregate([
-      { $match: { email: email } },
-      { $count: "total" },
-    ]);
-    if (UserCount.length > 0) {
-      // OTP Insert
-      let CreateOTP = await OTPModel.create({ email: email, otp: OTPCode });
-      // Email Send
-      let SendEmail = await SendEmailUtility(
+    const email = req.params.email;
+    const OTPCode = Math.floor(100000 + Math.random() * 900000);
+
+    // Check if the user with the provided email exists
+    const userCount = await UserModel.countDocuments({ email: email });
+
+    if (userCount > 0) {
+      // Create OTP document
+      await OTPModel.create({ email: email, otp: OTPCode });
+
+      // Send email with OTP code
+      const emailBody = `Your PIN Code is: ${OTPCode}`;
+      const emailSubject = "Task Manager PIN Verification";
+      const sendEmailResult = await sentEmailUtility(
         email,
-        "Your PIN Code is= " + OTPCode,
-        "Task Manager PIN Verification"
+        emailBody,
+        emailSubject
       );
-      res.status(200).json({ status: "success", data: SendEmail });
+
+      res.status(200).json({ status: "success", data: sendEmailResult });
     } else {
       res.status(200).json({ status: "fail", data: "No User Found" });
     }
-  } catch (e) {
-    res.status(200).json({ status: "fail", data: e });
+  } catch (error) {
+    res.status(200).json({ status: "fail", data: error.message });
   }
 };
 
@@ -148,7 +153,7 @@ exports.RecoverResetPass = async (req, res) => {
       { $count: "total" },
     ]);
     if (OTPUsedCount.length > 0) {
-      let PassUpdate = await UsersModel.updateOne(
+      let PassUpdate = await UserModel.updateOne(
         { email: email },
         {
           password: NewPass,
