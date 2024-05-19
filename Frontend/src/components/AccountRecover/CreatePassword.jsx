@@ -1,6 +1,6 @@
 import React, { Fragment, useRef } from "react";
 import { ErrorToast, IsEmpty } from "../../helper/FormHelper";
-import { RecoverResetPassRequest } from "/src/APIRequest/APIRequest.js";
+import { RecoverResetPassRequest } from "../../APIRequest/APIRequest.js";
 import { getEmail, getOTP } from "../../helper/SessionHelper";
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";

@@ -6,7 +6,7 @@ import {
   IsEmpty,
   IsMobile,
 } from "../../helper/FormHelper";
-import { RegistrationRequest } from "/src/APIRequest/APIRequest.js";
+import { RegistrationRequest } from "../../APIRequest/APIRequest.js";
 import { Toaster } from "react-hot-toast";
 const Registration = () => {
   let emailRef,
