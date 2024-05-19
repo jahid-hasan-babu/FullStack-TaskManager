@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import ReactCodeInput from "react-code-input";
 import { ErrorToast } from "../../helper/FormHelper";
-import { RecoverVerifyOTPRequest } from "../../APIRequest/APIRequest.js";
+import { RecoverVerifyOTPRequest } from "/src/APIRequest/APIRequest.js";
 import { getEmail } from "../../helper/SessionHelper";
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";

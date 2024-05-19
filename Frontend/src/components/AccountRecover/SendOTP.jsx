@@ -1,6 +1,6 @@
 import React, { Fragment, useRef } from "react";
 import { ErrorToast, IsEmail } from "../../helper/FormHelper";
-import { RecoverVerifyEmailRequest } from "../../APIRequest/APIRequest.js";
+import { RecoverVerifyEmailRequest } from "/src/APIRequest/APIRequest.js";
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
