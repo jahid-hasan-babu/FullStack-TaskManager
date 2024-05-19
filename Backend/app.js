@@ -17,13 +17,7 @@ const rateLimit = require("express-rate-limit");
 
 //middleware calling
 
-app.use(
-  cors({
-    origin: ["https://full-stack-task-manager-w2oq.vercel.app"],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true, // If you're using cookies or sessions
-  })
-);
+app.use(cors());
 app.use(helmet());
 app.use(hpp());
 app.use(mongoSanitize());
