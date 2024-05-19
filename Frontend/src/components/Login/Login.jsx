@@ -1,7 +1,7 @@
 import React, { Fragment, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ErrorToast, IsEmail, IsEmpty } from "../../helper/FormHelper";
-import { LoginRequest } from "/src/APIRequest/APIRequest.js";
+import { LoginRequest } from "/src/APIRequest/APIRequest";
 import { Toaster } from "react-hot-toast";
 const Login = () => {
   let passRef,
