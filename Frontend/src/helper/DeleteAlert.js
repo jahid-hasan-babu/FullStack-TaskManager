@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { DeleteRequest } from "../APIRequest/APIRequest";
+import { DeleteRequest } from "../APIRequest/APIRequest.js";
 
 export function DeleteToDO(id) {
   return Swal.fire({

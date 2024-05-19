@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import {
   GetProfileDetails,
   ProfileUpdateRequest,
-} from "../../APIRequest/APIRequest";
+} from "../../APIRequest/APIRequest.js";
 import { useSelector } from "react-redux";
 import {
   ErrorToast,
