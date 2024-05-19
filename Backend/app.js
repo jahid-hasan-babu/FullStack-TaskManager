@@ -4,7 +4,8 @@ const router = require("./src/routes/api");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const URI = process.env.DATABASE_URL;
+const URI =
+  "mongodb+srv://jahidhasan:jahid246578@cluster0.u5gekv5.mongodb.net/Task-Manager";
 
 //middleware call
 const cors = require("cors");
