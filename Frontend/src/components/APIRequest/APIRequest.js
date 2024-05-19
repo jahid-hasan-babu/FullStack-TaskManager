@@ -1,9 +1,9 @@
 import axios from "axios";
-import { ErrorToast, SuccessToast } from "../helper/FormHelper";
-import store from "../redux/store/store";
-import { HideLoader, ShowLoader } from "../redux/state-slice/settingsSlice";
-import { SetSummary } from "../redux/state-slice/summarySlice";
-import { SetProfile } from "../redux/state-slice/profileSlice";
+import { ErrorToast, SuccessToast } from "../../helper/FormHelper";
+import store from "../../redux/store/store";
+import { HideLoader, ShowLoader } from "../../redux/state-slice/settingsSlice";
+import { SetSummary } from "../../redux/state-slice/summarySlice";
+import { SetProfile } from "../../redux/state-slice/profileSlice";
 import { UnAuthorizeRequest } from "./UnAuthorizeRequest";
 import {
   getToken,
@@ -11,13 +11,13 @@ import {
   setOTP,
   setToken,
   setUserDetails,
-} from "../helper/SessionHelper";
+} from "../../helper/SessionHelper";
 import {
   SetCanceledTask,
   SetCompletedTask,
   SetNewTask,
   SetProgressTask,
-} from "../redux/state-slice/taskSlice";
+} from "../../redux/state-slice/taskSlice";
 
 const BaseURL = "https://full-stack-task-manager-alpha.vercel.app/api/v1";
 const AxiosHeader = { headers: { token: getToken() } };

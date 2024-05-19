@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { UpdateStatusRequest } from "../APIRequest/APIRequest.js";
+import { UpdateStatusRequest } from "../components/APIRequest/APIRequest";
 
 export function UpdateToDO(id, status) {
   return Swal.fire({

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { SummaryRequest } from "../../APIRequest/APIRequest.js";
+import { SummaryRequest } from "../APIRequest/APIRequest";
 import { useSelector } from "react-redux";
 const Dashboard = () => {
   useEffect(() => {
