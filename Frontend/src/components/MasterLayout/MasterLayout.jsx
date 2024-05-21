@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Container, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   AiOutlineCheckCircle,
   AiOutlineEdit,
@@ -18,9 +18,11 @@ import { getUserDetails, removeSessions } from "../../helper/SessionHelper";
 const MasterLayout = (props) => {
   let contentRef,
     sideNavRef = useRef();
+  const navigate = useNavigate();
 
   const onLogout = () => {
     removeSessions();
+    navigate("/");
   };
   const MenuBarClickHandler = () => {
     let sideNav = sideNavRef;
@@ -70,10 +72,10 @@ const MasterLayout = (props) => {
                   <AiOutlineUser className="side-bar-item-icon" />
                   <span className="side-bar-item-caption">Profile</span>
                 </NavLink>
-                <a onClick={onLogout} className="side-bar-item">
+                <Link onClick={onLogout} className="side-bar-item">
                   <AiOutlineLogout className="side-bar-item-icon" />
                   <span className="side-bar-item-caption">Logout</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
