@@ -12,6 +12,7 @@ app.use(
   cors({
     origin: "https://full-stack-task-manager-w2oq.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
   })
 );
 const helmet = require("helmet");
