@@ -12,7 +12,6 @@ app.use(
   cors({
     origin: ["https://full-stack-task-manager-w2oq.vercel.app"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true, // If you're using cookies or sessions
   })
 );
 const helmet = require("helmet");
