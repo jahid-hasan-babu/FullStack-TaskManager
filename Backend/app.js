@@ -8,13 +8,7 @@ const URI =
   "mongodb+srv://jahidhasan:jahid246578@cluster0.u5gekv5.mongodb.net/Task-Manager";
 
 //middleware call
-app.use(
-  cors({
-    origin: "https://full-stack-task-manager-w2oq.vercel.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-  })
-);
+const cors = require("cors");
 const helmet = require("helmet");
 const hpp = require("hpp");
 const mongoSanitize = require("express-mongo-sanitize");
@@ -23,7 +17,13 @@ const rateLimit = require("express-rate-limit");
 
 //middleware calling
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://full-stack-task-manager-w2oq.vercel.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 app.use(helmet());
 app.use(hpp());
 app.use(mongoSanitize());
