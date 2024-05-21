@@ -19,7 +19,7 @@ import {
   SetProgressTask,
 } from "../../redux/state-slice/taskSlice";
 
-const BaseURL = "https://full-stack-task-manager-backend.vercel.app//api/v1";
+const BaseURL = "https://full-stack-task-manager-backend.vercel.app/api/v1";
 const AxiosHeader = { headers: { token: getToken() } };
 
 export function NewTaskRequest(title, description) {

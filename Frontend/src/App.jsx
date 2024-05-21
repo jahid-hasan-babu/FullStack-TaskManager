@@ -26,22 +26,22 @@ const App = () => {
           {isAuthenticated ? (
             <>
               <Route path="/" element={<DashBoardPage />} />
-              <Route path="/Create" element={<CreatePage />} />
-              <Route path="/All" element={<NewPage />} />
-              <Route path="/Progress" element={<ProgressPage />} />
-              <Route path="/Completed" element={<CompletedPage />} />
-              <Route path="/Canceled" element={<CanceledPage />} />
-              <Route path="/Profile" element={<ProfilePage />} />
+              <Route path="/create" element={<CreatePage />} />
+              <Route path="/all" element={<NewPage />} />
+              <Route path="/progress" element={<ProgressPage />} />
+              <Route path="/completed" element={<CompletedPage />} />
+              <Route path="/canceled" element={<CanceledPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
               <Route path="*" element={<Page404 />} />
             </>
           ) : (
             <>
-              <Route path="/Login" element={<LoginPage />} />
-              <Route path="/Registration" element={<RegistrationPage />} />
-              <Route path="/SendOTP" element={<SendOTPPage />} />
-              <Route path="/VerifyOTP" element={<VerifyOTPPage />} />
-              <Route path="/CreatePassword" element={<CreatePasswordPage />} />
-              <Route path="*" element={<Navigate to="/Login" />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/registration" element={<RegistrationPage />} />
+              <Route path="/sendOTP" element={<SendOTPPage />} />
+              <Route path="/verifyOTP" element={<VerifyOTPPage />} />
+              <Route path="/createPassword" element={<CreatePasswordPage />} />
+              <Route path="*" element={<Navigate to="/login" />} />
             </>
           )}
         </Routes>
