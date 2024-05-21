@@ -8,7 +8,13 @@ const URI =
   "mongodb+srv://jahidhasan:jahid246578@cluster0.u5gekv5.mongodb.net/Task-Manager";
 
 //middleware call
-const cors = require("cors");
+app.use(
+  cors({
+    origin: ["https://full-stack-task-manager-w2oq.vercel.app"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true, // If you're using cookies or sessions
+  })
+);
 const helmet = require("helmet");
 const hpp = require("hpp");
 const mongoSanitize = require("express-mongo-sanitize");
